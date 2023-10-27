@@ -2,9 +2,9 @@
 
 Some applications determine the user's access rights or role at login, and then store this information in a user-controllable location. This could be:
 
-A hidden field.
-A cookie.
-A preset query string parameter.
+A hidden field.<br>
+A cookie.<br>
+A preset query string parameter.<br>
 
 The application makes access control decisions based on the submitted value. For example:
 ```bash
