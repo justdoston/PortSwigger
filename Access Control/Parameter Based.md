@@ -12,3 +12,12 @@ https://insecure-website.com/login/home.jsp?admin=true
 https://insecure-website.com/login/home.jsp?role=1
 ```
 This approach is insecure because a user can modify the value and access functionality they're not authorized to, such as administrative functions.
+
+# Lab
+
+Browse to /admin and observe that you can't access the admin panel.<br>
+Browse to the login page.<br>
+In Burp Proxy, turn interception on and enable response interception.<br>
+Complete and submit the login page, and forward the resulting request in Burp.<br>
+Observe that the response sets the cookie Admin=false. Change it to Admin=true.<br>
+Load the admin panel and delete carlos.
