@@ -11,7 +11,7 @@ differences in the application responses.
 # SQL injection in different parts of the query
 
 Most SQL injection vulnerabilities occur within the `WHERE` clause of a `SELECT` query. Most experienced testers are familiar with this type of SQL injection.<br>
-Some other common locations where SQL injection arises are:
+Some other common locations where SQL injection arises are:<br>
 In `UPDATE` statements, within the updated values or the `WHERE` clause.<br>
 In `INSERT` statements, within the inserted values.<br>
 In `SELECT` statements, within the table or column name<br>
