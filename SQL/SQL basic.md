@@ -1,8 +1,7 @@
 # How to detect SQL injection vulnerabilities
 You can detect SQL injection manually using a systematic set of tests against every entry point in the application. To do this, you would typically submit:
 
-1) The single quote character `'` and look for errors or other anomalies.
-<br>
+1) The single quote character `'` and look for errors or other anomalies.<br>
 2) Some SQL-specific syntax that evaluates to the base (original) value of the entry point, and to a different value, and look for systematic
 differences in the application responses.
 <br>
