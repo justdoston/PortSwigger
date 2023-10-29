@@ -13,3 +13,26 @@ all details `(*)`<br>
 from the `products` table<br>
 where the `category` is `Gifts`<br>
 and `released` is `1`<br>
+
+
+The application doesn't implement any defenses against SQL injection attacks. This means an attacker can construct the following attack, for example:
+```bash
+https://insecure-website.com/products?category=Gifts'--
+```
+This results in the SQL query:
+```bash
+SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1
+```
+Crucially, note that `--` is a comment indicator in SQL
+You can use a similar attack to cause the application to display all the products in any category, including categories that they don't know about:
+```bash
+https://insecure-website.com/products?category=Gifts'+OR+1=1--
+```
+This results in the SQL query:
+```bash
+SELECT * FROM products WHERE category = 'Gifts' OR 1=1--' AND released = 1
+```
+
+
+
+
