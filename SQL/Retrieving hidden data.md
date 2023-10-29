@@ -33,6 +33,5 @@ This results in the SQL query:
 SELECT * FROM products WHERE category = 'Gifts' OR 1=1--' AND released = 1
 ```
 
-
-
+https://github.com/offensivecyber03/PortSwigger/assets/71892943/50dc9e01-37ca-4745-aaa6-b75a566f9484
 
