@@ -51,6 +51,7 @@ All queries combined using a UNION, INTERSECT or EXCEPT operator must have an eq
 
 ## Lab
 **Task:** Determine number of columns
+<br>
 **Solution:** `UNION SELECT NULL,NULL,NULL,NULL--`
 
 
