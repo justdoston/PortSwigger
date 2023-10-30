@@ -28,10 +28,10 @@ Conversion failed when converting the varchar value 'a' to data type int.
 **Solution**
 <br>
 First  `order by` function
-I send `' order by 1--` until error occurs. Error occured when I send `' order by 4--` which means number of columns are 4
+I send `' order by 1--` until error occurs. Error occured when I send `' order by 4--` which means number of columns are 3
 <br>
 Second confirm I used  `UNION SELECT` I started to sent `' UNION SELECT NULL` until showing page, when I send
-`' UNION SELECT NULL,NULL,NULL--` error gone. This is second confirm database has indeed 4 columns
+`' UNION SELECT NULL,NULL,NULL--` error gone. This is second confirm database has indeed 3 columns
 
 To determine which columns hold string data I replaced `NULL` whith random data 
 For example:
