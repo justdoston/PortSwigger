@@ -16,3 +16,5 @@ After using that payload I found 2 columns for users and passwords: `username_tp
 ' UNION SELECT username_tpngqp, password_gtvpsz FROM users_mxcjah--
 ```
 
+## Perfect explanation on you tube
+https://youtu.be/JduM_dO8glw
