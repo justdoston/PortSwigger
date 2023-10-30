@@ -2,8 +2,8 @@
 
 The following are some queries to determine the database version for some popular database types:
 
-Database type	                           Query
-Microsoft, MySQL                         `SELECT @@version`
-Oracle                                   `SELECT * FROM v$version`
-Postgresql                               `SELECT version()`
+Database type                            Query<br>
+Microsoft, MySQL                         `SELECT @@version`<br>
+Oracle                                   `SELECT * FROM v$version`<br>
+Postgresql                               `SELECT version()`<br>
 
