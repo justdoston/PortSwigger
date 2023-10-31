@@ -14,4 +14,4 @@ For example, you could use a `UNION` attack with the following input:
 ' UNION SELECT @@version--
 ```
 Payload for Oracle
-`'+UNION+SELECT+BANNER,+NULL+FROM+v$version--`
+`' UNION SELECT BANNER, NULL FROM v$version--`
