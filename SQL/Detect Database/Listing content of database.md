@@ -3,7 +3,7 @@
 Most database types (except Oracle) have a set of views called the information schema. 
 This provides information about the database.
 
-For example, you can query information_schema.tables to list the tables in the database:
+For example, you can query `information_schema.tables` to list the tables in the database:
 ```bash
 SELECT * FROM information_schema.tables
 ```
