@@ -29,3 +29,18 @@ Using this technique, you can retrieve data by testing one character at a time:
 ```bash
 xyz' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') THEN 1/0 ELSE 'a' END FROM Users)='a
 ```
+
+# Lab
+
+1) Visit web site, load and capture request using burp suite send it to repeater
+2) Modify the TrackingId cookie, appending a single quotation mark to it:
+```bash
+TrackingId=xyz'
+```
+Verify error happened<br>
+3) Now change it to two quotation marks:
+```bash
+TrackingId=xyz''
+```
+Verify that the error disappears. This suggests that a syntax error (in this case, the unclosed quotation mark) is having a detectable effect on the response.<br>
+4) You now need to confirm that the server is interpreting the injection as a SQL query i.e. that the error is a SQL syntax error as opposed to any other kind of error. To do this, you first need to construct a subquery using valid SQL syntax. Try submitting:
