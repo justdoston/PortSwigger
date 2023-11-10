@@ -10,3 +10,22 @@ see [Exploiting blind SQL injection by triggering conditional errors.](https://p
 2) You may be able to trigger error messages that output the data returned by the query.
 This effectively turns otherwise blind SQL injection vulnerabilities into visible ones.
 For more information, see [Extracting sensitive data via verbose SQL error messages.](https://portswigger.net/web-security/sql-injection/blind#extracting-sensitive-data-via-verbose-sql-error-messages)
+
+
+To see how this works, suppose that two requests are sent containing the following TrackingId cookie values in turn:
+```bash
+xyz' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE 'a' END)='a
+```
+```bash
+xyz' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE 'a' END)='a
+```
+These inputs use the `CASE` keyword to test a condition and return a different expression depending on whether the expression is true:<br>
+1) With the first input, the `CASE` expression evaluates to `'a'`, which does not cause any error.
+2) With the second input, it evaluates to `1/0`, which causes a divide-by-zero error.
+
+If the error causes a difference in the application's HTTP response, you can use this to determine whether the injected condition is true.
+<br>
+Using this technique, you can retrieve data by testing one character at a time:
+```bash
+xyz' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') THEN 1/0 ELSE 'a' END FROM Users)='a
+```
