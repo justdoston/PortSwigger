@@ -29,3 +29,14 @@ The three lines of output demonstrate that:
 1) The original `stockreport.pl` command was executed without its expected arguments, and so returned an error message.
 2) The injected `echo` command was executed, and the supplied string was echoed in the output.
 3) The original argument `29` was executed as a command, which caused an error.
+
+
+## Sample Lab
+1) Use Burp Suite to intercept and modify a request that checks the stock level.
+2) Modify the `storeID` parameter, giving it the value `1|whoami`.
+3) Observe that the response contains the name of the current user.
+
+
+https://github.com/offensivecyber03/PortSwigger/assets/71892943/1e83e54f-248c-4b55-85bf-55e6332f02df
+
+
