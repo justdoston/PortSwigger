@@ -29,3 +29,16 @@ You can query the database to determine its type and version. This information i
 <br>
 **Microsoft:** `SELECT * FROM information_schema.tables`<br>
 `SELECT * FROM information_schema.columns WHERE table_name = 'TABLENAME'`<br>
+<br>
+**PostgreSQL:** `SELECT * FROM information_schema.tables`<br>
+`SELECT * FROM information_schema.columns WHERE table_name = 'TABLENAME'`<br>
+<br>
+**MySQL:** `SELECT * FROM information_schema.tables`<br>
+`SELECT * FROM information_schema.columns WHERE table_name = 'TABLENAME'`<br>
+<br>
+
+## Time Delays
+**Oracle:** `dbms_pipe.receive_message(('a'),10)`<br>
+**Microsoft:** `WAITFOR DELAY '0:0:10'`<br>
+**PostgreSQL:** `SELECT pg_sleep(10)`<br>
+**MySQL:** `SELECT SLEEP(10)`<br>
