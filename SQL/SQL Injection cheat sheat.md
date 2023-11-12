@@ -26,5 +26,6 @@ You can query the database to determine its type and version. This information i
 ## Database contents
 
 **Oracle:**	`SELECT * FROM all_tables`<br>`SELECT * FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'`<br>
+<br>
 **Microsoft:** `SELECT * FROM information_schema.tables`<br>
 `SELECT * FROM information_schema.columns WHERE table_name = 'TABLENAME'`<br>
