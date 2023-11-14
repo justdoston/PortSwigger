@@ -4,8 +4,8 @@ In this section, you'll learn how simple file upload functions can be used as a 
 
 From a security perspective, the worst possible scenario is when a website allows you to upload server-side scripts, such as PHP, Java, or Python files, and is also configured to execute them as code. This makes it trivial to create your own web shell on the server.
 
-```
+`
 Web shell
 A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server
 simply by sending HTTP requests to the right endpoint.
-```
+`
