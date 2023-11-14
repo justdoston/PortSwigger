@@ -6,5 +6,6 @@ From a security perspective, the worst possible scenario is when a website allow
 
 ```
 Web shell
-A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server simply by sending HTTP requests to the right endpoint.
+A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server
+simply by sending HTTP requests to the right endpoint.
 ```
