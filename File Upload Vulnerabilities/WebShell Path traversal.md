@@ -19,3 +19,13 @@ Content-Length: 39
 This kind of configuration often differs between directories. A directory to which user-supplied files are uploaded will likely have much stricter controls than other locations on the filesystem that are assumed to be out of reach for end users. If you can find a way to upload a script to a different directory that's not supposed to contain user-supplied files, the server may execute your script after all.
 
 Web servers often use the `filename` field in `multipart/form-data` requests to determine the name and location where the file should be saved.
+
+
+# Lab traversal
+
+1) Tried to upload web shell
+2) In burp suite we captured request like: `Content-Disposition: form-data; name="avatar"; filename="exploit.php"`<br> In it's name I tried to change `../exploit.php` meaning file uploading to another folder to launch
+3) And.. we can confirm by browsing location
+
+Good explanation on you tube:
+https://youtu.be/7mISCBhwcXM
