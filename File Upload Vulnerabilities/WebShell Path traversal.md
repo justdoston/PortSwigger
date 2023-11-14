@@ -15,3 +15,7 @@ Content-Length: 39
 
 <?php echo system($_GET['command']); ?>
 ```
+
+This kind of configuration often differs between directories. A directory to which user-supplied files are uploaded will likely have much stricter controls than other locations on the filesystem that are assumed to be out of reach for end users. If you can find a way to upload a script to a different directory that's not supposed to contain user-supplied files, the server may execute your script after all.
+
+Web servers often use the `filename` field in `multipart/form-data` requests to determine the name and location where the file should be saved.
