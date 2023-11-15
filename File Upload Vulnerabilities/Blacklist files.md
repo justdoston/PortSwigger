@@ -24,4 +24,4 @@ Web servers use these kinds of configuration files when present, but you're not 
 
 1) I tried to send malicious php payload and got the response that I am not allowed to upload .php file.
 2) In Burp's proxy history, find the `POST /my-account/avatar` request that was used to submit the file upload. In the response, notice that the headers reveal that you're talking to an Apache server. Send this request to Burp Repeater.
-3) In request I have to change following headers:<br>Change the value of the `filename` parameter to `.htaccess`.<br>Change the value of the `Content-Type` header to `text/plain`
+3) In request I have to change following headers:<br>Change the value of the `filename` parameter to `.htaccess`.<br>Change the value of the `Content-Type` header to `text/plain`<br>Replace the contents of the file (your PHP payload) with the following Apache directive:<br>`AddType application/x-httpd-php .l33t`
