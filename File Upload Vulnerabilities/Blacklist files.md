@@ -26,5 +26,6 @@ Web servers use these kinds of configuration files when present, but you're not 
 2) In Burp's proxy history, find the `POST /my-account/avatar` request that was used to submit the file upload. In the response, notice that the headers reveal that you're talking to an Apache server. Send this request to Burp Repeater.
 3) In request I have to change following headers:<br>Change the value of the `filename` parameter to `.htaccess`.<br>Change the value of the `Content-Type` header to `text/plain`<br>Replace the contents of the file (your PHP payload) with the following Apache directive:<br>`AddType application/x-httpd-php .l33t`<br>
 ![image](https://github.com/offensivecyber03/PortSwigger/assets/71892943/1c861057-e665-4546-83c7-8ea0e3ae7007)
-![image](https://github.com/offensivecyber03/PortSwigger/assets/71892943/e8c0efbb-61b6-4674-b715-0dbdf3abf014)
+![image](https://github.com/offensivecyber03/PortSwigger/assets/71892943/e8c0efbb-61b6-4674-b715-0dbdf3abf014)<br>
+4) Now come back to original reqesut using back arrow or change this headers:<br>`filename` parametr to `exploit.l33t`<br>`Content-Type` header to `application/php`
 
