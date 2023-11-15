@@ -38,3 +38,16 @@ and
 ```bash
 https://insecure-website.com/product/lookup?category=fizzy'+%26%26+1+%26%26+'x
 ```
+If the application behaves differently, this suggests that the false condition impacts the query logic, but the true condition doesn't. This indicates that injecting this style of syntax impacts a server-side query.
+
+## Overriding existing conditions
+
+Now that you have identified that you can influence boolean conditions, you can attempt to override existing conditions to exploit the vulnerability. For example, you can inject a JavaScript condition that always evaluates to true, such as `'||1||'`:
+```bash
+https://insecure-website.com/product/lookup?category=fizzy%27%7c%7c%31%7c%7c%27
+```
+This results in the following MongoDB query:
+```bash
+this.category == 'fizzy'||'1'=='1'
+```
+As the injected condition is always true, the modified query returns all items. This enables you to view all the products in any category, including hidden or unknown categories.
