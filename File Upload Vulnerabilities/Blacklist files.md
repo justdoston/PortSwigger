@@ -19,3 +19,9 @@ Similarly, developers can make directory-specific configuration on IIS servers u
 
 Web servers use these kinds of configuration files when present, but you're not normally allowed to access them using HTTP requests. However, you may occasionally find servers that fail to stop you from uploading your own malicious configuration file. In this case, even if the file extension you need is blacklisted, you may be able to trick the server into mapping an arbitrary, custom file extension to an executable MIME type.
 
+
+# Lab
+
+1) I tried to send malicious php payload and got the response that I am not allowed to upload .php file.
+2) In Burp's proxy history, find the `POST /my-account/avatar` request that was used to submit the file upload. In the response, notice that the headers reveal that you're talking to an Apache server. Send this request to Burp Repeater.
+3) In request I have to change following headers:<br>Change the value of the `filename` parameter to `.htaccess`.<br>Change the value of the `Content-Type` header to `text/plain`
