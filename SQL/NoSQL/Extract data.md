@@ -27,4 +27,9 @@ admin' && this.password.match(/\d/) || 'a'=='b
 1) In Burp, go to Proxy > HTTP history. Right-click the `GET /user/lookup?user=wiener` request and select Send to Repeater.
 2) Submit a `'` character in the user parameter. Notice that this causes an error. This may indicate that the user input was not filtered or sanitized correctly.
 3) Submit a valid JavaScript payload in the user parameter. For example, you could use `wiener'+'` URL ENCODE Notice that it retrieves the account details for the wiener user, which indicates that a form of server-side injection may be occurring.
-4) Identify whether you can inject boolean conditions to change the response:<br>Submit:<br>`wiener' && '1'=='2` notice error appeared<br>Submit:<br>`wiener' && '1'=='1`notice error is gone 
+4) Identify whether you can inject boolean conditions to change the response:<br>Submit:<br>`wiener' && '1'=='2` notice error appeared<br>Submit:<br>`wiener' && '1'=='1`notice error is gone.<br>This demonstrates that you can trigger different responses for true and false conditions.
+5) Change the `user` parameter to `administrator' && this.password.length < 30 || 'a'=='b` then send the request.
+Notice that the response retrieves the account details for the `administrator` user. This indicates that the condition is true because the password is less than 30 characters.<br>
+6) We will check by decreasing number .
+7) Enumerate password using intruder: Change the user parameter to `administrator' && this.password[§0§]=='§a§`. This includes two payload positions. We will use cluster bomb
+8) We know password contains 8 character for first payload we will use numbers from 0 to 7 step 1 and second payload we will use lower-case letters from a to z.
