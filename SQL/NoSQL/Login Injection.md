@@ -14,3 +14,13 @@ If both the username and password inputs process the operator, it may be possibl
 {"username":{"$ne":"invalid"},"password":{"$ne":"invalid"}}
 ```
 This query returns all login credentials where both the username and password are not equal to invalid. As a result, you're logged into the application as the first user in the collection.
+
+To target an account, you can construct a payload that includes a known username, or a username that you've guessed. For example:
+```bash
+{"username":{"$in":["admin","administrator","superadmin"]},"password":{"$ne":""}}
+```
+
+# Lab
+![image](https://github.com/offensivecyber03/PortSwigger/assets/71892943/2f871d70-1005-49e4-94a3-d8ec8ccea865)
+
+
