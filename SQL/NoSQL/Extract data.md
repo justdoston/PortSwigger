@@ -22,3 +22,9 @@ You could also use the JavaScript match() function to extract information. For e
 admin' && this.password.match(/\d/) || 'a'=='b
 ```
 
+# Lab
+
+1) In Burp, go to Proxy > HTTP history. Right-click the `GET /user/lookup?user=wiener` request and select Send to Repeater.
+2) Submit a `'` character in the user parameter. Notice that this causes an error. This may indicate that the user input was not filtered or sanitized correctly.
+3) Submit a valid JavaScript payload in the user parameter. For example, you could use `wiener'+'` URL ENCODE Notice that it retrieves the account details for the wiener user, which indicates that a form of server-side injection may be occurring.
+4) Identify whether you can inject boolean conditions to change the response:<br>Submit:<br>`wiener' && '1'=='2` notice error appeared<br>Submit:<br>`wiener' && '1'=='1`notice error is gone 
