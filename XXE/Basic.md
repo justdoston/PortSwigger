@@ -26,3 +26,9 @@ The application performs no particular defenses against XXE attacks, so you can 
 ```
 This XXE payload defines an external entity `&xxe;` whose value is the contents of the `/etc/passwd` file and uses the entity within the `productId` value. This causes the application's response to include the contents of the file
 
+# Basic Example Lab
+https://github.com/offensivecyber03/PortSwigger/assets/71892943/fd5aa167-0981-4ef2-8157-4b947502aa60
+
+1) After first row we will add `<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>`
+2) Then change stockid `1` to `&xxe;` because above payload marked `xxe` as `/etc/passwd` file
+
