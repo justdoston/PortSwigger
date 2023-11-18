@@ -18,3 +18,11 @@ For example, suppose a shopping application checks for the stock level of a prod
 <?xml version="1.0" encoding="UTF-8"?>
 <stockCheck><productId>381</productId></stockCheck>
 ```
+The application performs no particular defenses against XXE attacks, so you can exploit the XXE vulnerability to retrieve the `/etc/passwd` file by submitting the following XXE payload:
+```bash
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<stockCheck><productId>&xxe;</productId></stockCheck>
+```
+This XXE payload defines an external entity `&xxe;` whose value is the contents of the `/etc/passwd` file and uses the entity within the `productId` value. This causes the application's response to include the contents of the file
+
