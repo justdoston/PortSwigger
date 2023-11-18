@@ -1,2 +1,3 @@
 # XXE attack with SSRF
 To exploit an XXE vulnerability to perform an [SSRF attack](https://portswigger.net/web-security/ssrf), you need to define an external XML entity using the URL that you want to target, and use the defined entity within a data value.
+If you can use the defined entity within a data value that is returned in the application's response, then you will be able to view the response from the URL within the application's response, and so gain two-way interaction with the back-end system. If not, then you will only be able to perform [blind SSRF](https://portswigger.net/web-security/ssrf/blind) attacks (which can still have critical consequences).
