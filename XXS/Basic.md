@@ -21,3 +21,26 @@ The application doesn't perform any other processing of the data, so an attacker
 https://insecure-website.com/status?message=<script>/*+Bad+stuff+here...+*/</script>
 <p>Status: <script>/* Bad stuff here... */</script></p>
 ```
+## Stored cross-site scripting
+[Stored XSS](https://portswigger.net/web-security/cross-site-scripting/stored) (also known as persistent or second-order XSS) arises when an application receives data from an untrusted source and includes that data within its later HTTP responses in an unsafe way.
+
+Here is a simple example of a stored XSS vulnerability. A message board application lets users submit messages, which are displayed to other users:
+```bash
+<p>Hello, this is my message!</p>
+```
+The application doesn't perform any other processing of the data, so an attacker can easily send a message that attacks other users:
+```bash
+<p><script>alert('Hello World Alert!')</script></p>
+```
+
+## DOM-based cross-site scripting
+[DOM-based XSS](https://portswigger.net/web-security/cross-site-scripting/dom-based) (also known as DOM XSS) arises when an application contains some client-side JavaScript that processes data from an untrusted source in an unsafe way, usually by writing the data back to the DOM.
+
+In the following example, an application uses some JavaScript to read the value from an input field and write that value to an element within the HTML:
+```
+var search = document.getElementById('search').value;
+var results = document.getElementById('results');
+results.innerHTML = 'You searched for: ' + search;
+```
+If the attacker can control the value of the input field, they can easily construct a malicious value that causes their own script to execute:
+`You searched for: <img src=1 onerror='/* Bad stuff here... */'>`
