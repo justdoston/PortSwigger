@@ -26,3 +26,21 @@ https://www.innocent-website.com/example#https://www.evil-user.net
 ```
 When a victim visits this URL, the JavaScript sets the value of the location property to https://www.evil-user.net, which automatically `redirects` the victim to the malicious site. 
 
+# Common sources
+The following are typical sources that can be used to exploit a variety of taint-flow vulnerabilities:
+```
+document.URL
+document.documentURI
+document.URLUnencoded
+document.baseURI
+location
+document.cookie
+document.referrer
+window.name
+history.pushState
+history.replaceState
+localStorage
+sessionStorage
+IndexedDB (mozIndexedDB, webkitIndexedDB, msIndexedDB)
+Database
+```
