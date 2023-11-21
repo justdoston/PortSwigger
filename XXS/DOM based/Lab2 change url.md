@@ -6,3 +6,4 @@ Last change to url:
 `product?productId=1&storeId="></select><img%20src=1%20onerror=alert(1)>`<br>
  Explanation on you tube:
  https://youtu.be/AsR-YeaD5Iw
+
