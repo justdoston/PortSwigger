@@ -5,3 +5,11 @@ This means you will need to use alternative elements like `img` or `iframe`. Eve
 ```bash
 element.innerHTML='... <img src=1 onerror=alert(document.domain)> ...'
 ```
+ # Lab
+This lab contains a DOM-based cross-site scripting vulnerability in the search blog functionality. It uses an `innerHTML` assignment, which changes the HTML contents of a div element, using data from `location.search`.
+
+Enter the following to search box:
+```bash
+<img src=1 onerror=alert(1)>
+```
+We can determine sink using `DOM invader` tool from burp suite
