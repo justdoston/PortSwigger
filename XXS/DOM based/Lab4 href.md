@@ -9,3 +9,6 @@ This lab contains a DOM-based cross-site scripting vulnerability in the submit f
 javascript:alert(document.cookie)
 ```
 Hit enter and click "back".
+
+## Best explanation on you tube
+https://youtu.be/B2E9cEZQQXg
